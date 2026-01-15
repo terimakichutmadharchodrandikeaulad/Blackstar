@@ -8,16 +8,38 @@ from typing import Dict, List, Optional
 from datetime import datetime
 from collections import defaultdict
 
+# ──────────────────────────
+# Pyrogram
+# ──────────────────────────
 from pyrogram import Client, filters, idle
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import (
+    Message,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton,
+    CallbackQuery
+)
 from pyrogram.errors import (
-    UserAlreadyParticipant, ChatAdminRequired, UserNotParticipant,
-    FloodWait, ChannelPrivate, PeerIdInvalid
+    UserAlreadyParticipant,
+    ChatAdminRequired,
+    UserNotParticipant,
+    FloodWait,
+    ChannelPrivate,
+    PeerIdInvalid,
+    RPCError
 )
 from pyrogram.enums import ChatMemberStatus
 
+# ──────────────────────────
+# PyTgCalls (2.2.7 SAFE IMPORTS)
+# ──────────────────────────
 from pytgcalls import PyTgCalls
+from pytgcalls.types.input_stream import AudioPiped
+from pytgcalls.types.input_stream.quality import HighQualityAudio
+from pytgcalls.types.stream import StreamAudioEnded
 
+# ──────────────────────────
+# Utils
+# ──────────────────────────
 import yt_dlp
 import psutil
 
