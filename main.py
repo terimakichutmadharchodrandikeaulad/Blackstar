@@ -18,8 +18,6 @@ from pyrogram.enums import ChatMemberStatus
 
 from pytgcalls import PyTgCalls
 
-from pytgcalls.exceptions import GroupCallNotFound, NotInGroupCallError
-
 import yt_dlp
 import psutil
 
