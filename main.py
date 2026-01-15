@@ -17,7 +17,7 @@ from pyrogram.errors import (
 from pyrogram.enums import ChatMemberStatus
 
 from pytgcalls import PyTgCalls
-from pytgcalls.types import AudioPiped, Update
+
 from pytgcalls.exceptions import GroupCallNotFound, NotInGroupCallError
 
 import yt_dlp
