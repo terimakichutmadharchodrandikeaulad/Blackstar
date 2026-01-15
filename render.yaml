@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: telegram-vc-music-bot
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python3 main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: ASSISTANT_SESSION
+        sync: false
+      - key: LOG_CHANNEL
+        sync: false
