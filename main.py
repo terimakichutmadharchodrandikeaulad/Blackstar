@@ -1175,7 +1175,10 @@ if __name__ == "__main__":
         
         asyncio.run(main())
     
-    except KeyboardInterrupt:
+    try:
+    bot.run()
+
+except KeyboardInterrupt:
     logger.info("Stopped by user")
 
 except Exception as e:
@@ -1184,7 +1187,6 @@ except Exception as e:
 
 finally:
     logger.info("Bot terminated")
-
 @bot.on_message(filters.command("clean") & filters.group)
 async def clean_command(_, message: Message):
     if not await is_admin(bot, message.chat.id, message.from_user.id):
