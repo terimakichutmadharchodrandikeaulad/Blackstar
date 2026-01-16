@@ -762,14 +762,28 @@ async def stats_command(_, message: Message):
         f"💾 RAM: `{memory}%`"
     )
     await message.reply_text(text)
-
+    
 @bot.on_message(filters.command("ping"))
 async def ping_command(_, message: Message):
     start = time.time()
-    msg = await message.
 
-text = (
+    # Temporary message to calculate ping
+    msg = await message.reply_text("⏳ Checking bot status...")
+
+    end = time.time()
+    ping = round((end - start) * 1000, 2)
+
+    # Example stats (apne variables yaha plug karo)
+    uptime = time.time() - START_TIME
+    active_chats = len(active_chats_db)
+    total_songs = sum(len(v) for v in queues.values())
+    cpu = psutil.cpu_percent()
+    memory = psutil.virtual_memory().percent
+    disk = psutil.disk_usage("/").percent
+
+    text = (
         f"📊 **Bot Statistics**\n\n"
+        f"🏓 **Ping:** `{ping} ms`\n"
         f"⏰ **Uptime:** `{str(uptime).split('.')[0]}`\n"
         f"🎵 **Active Chats:** `{active_chats}`\n"
         f"📋 **Total Queued:** `{total_songs} songs`\n"
@@ -779,8 +793,10 @@ text = (
         f"💾 RAM: `{memory}%`\n"
         f"💿 Disk: `{disk}%`"
     )
-    
-    await message.reply_text(text)
+
+    await msg.edit_text(text)
+
+
 
 @bot.on_message(filters.command("ping"))
 async def ping_command(_, message: Message):
