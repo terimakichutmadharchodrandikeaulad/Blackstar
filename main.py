@@ -25,7 +25,6 @@ from pyrogram.enums import ChatMemberStatus, ParseMode
 # PyTgCalls
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
-from pytgcalls.types import AudioPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQualityAudio
 
 # Utils
