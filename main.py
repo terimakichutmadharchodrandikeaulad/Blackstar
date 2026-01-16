@@ -1176,18 +1176,14 @@ if __name__ == "__main__":
         asyncio.run(main())
     
     except KeyboardInterrupt:
-        logger.info("Stopped by user")
-    except Exception as e:
-        logger.critical(f"Fatal error: {e}")
-        traceback.print_exc()
-    finally:
-        logger.info("Bot terminated")reply_text("🏓 **Pinging...**")
-    latency = (time.time() - start) * 1000
-    
-    await msg.edit(
-        f"🏓 **Pong!**\n"
-        f"⚡️ Latency: `{latency:.2f} ms`"
-    )
+    logger.info("Stopped by user")
+
+except Exception as e:
+    logger.critical(f"Fatal error: {e}")
+    traceback.print_exc()
+
+finally:
+    logger.info("Bot terminated")
 
 @bot.on_message(filters.command("clean") & filters.group)
 async def clean_command(_, message: Message):
