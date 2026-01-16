@@ -1163,8 +1163,7 @@ async def main():
 # -------------------------
 # Entry Point
 # -------------------------
-
-        if __name__ == "__main__":
+if __name__ == "__main__":
     try:
         if sys.version_info < (3, 8):
             print("❌ Python 3.8+ required!")
