@@ -1163,7 +1163,8 @@ async def main():
 # -------------------------
 # Entry Point
 # -------------------------
-if __name__ == "__main__":
+
+        if __name__ == "__main__":
     try:
         if sys.version_info < (3, 8):
             print("❌ Python 3.8+ required!")
@@ -1185,8 +1186,7 @@ if __name__ == "__main__":
     finally:
         logger.info("Bot terminated")
 
-finally:
-    logger.info("Bot terminated")
+
 @bot.on_message(filters.command("clean") & filters.group)
 async def clean_command(_, message: Message):
     if not await is_admin(bot, message.chat.id, message.from_user.id):
@@ -1201,6 +1201,7 @@ async def clean_command(_, message: Message):
     count = len(qm.queue)
     qm.queue.clear()
     await message.reply_text(f"🧹 **Cleared {count} songs from queue**")
+
 
 @bot.on_message(filters.command("remove") & filters.group)
 async def remove_command(_, message: Message):
@@ -1225,6 +1226,7 @@ async def remove_command(_, message: Message):
         await message.reply_text(f"✅ **Removed:** {song.title}")
     else:
         await message.reply_text("❌ **Invalid position!**")
+
 
 @bot.on_message(filters.command("search"))
 async def search_command(_, message: Message):
