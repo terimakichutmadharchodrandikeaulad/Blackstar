@@ -1168,22 +1168,22 @@ if __name__ == "__main__":
         if sys.version_info < (3, 8):
             print("❌ Python 3.8+ required!")
             sys.exit(1)
-        
-        logger.info("="*50)
+
+        logger.info("=" * 50)
         logger.info("Advanced Telegram Music Bot")
-        logger.info("="*50)
-        
+        logger.info("=" * 50)
+
         asyncio.run(main())
-    
-    try:
-    bot.run()
 
-except KeyboardInterrupt:
-    logger.info("Stopped by user")
+    except KeyboardInterrupt:
+        logger.info("Stopped by user")
 
-except Exception as e:
-    logger.critical(f"Fatal error: {e}")
-    traceback.print_exc()
+    except Exception as e:
+        logger.critical(f"Fatal error: {e}")
+        traceback.print_exc()
+
+    finally:
+        logger.info("Bot terminated")
 
 finally:
     logger.info("Bot terminated")
